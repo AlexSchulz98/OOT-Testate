@@ -1,4 +1,4 @@
-package de.hs_mannheim.oot.ss17.spechtl.alex_alex_kevin.testat1;
+package de.hs_mannheim.oot.ss17.specht.alex_alex_kevin.testat1;
 
 public class Main {
     public static void main(String[] args) {
