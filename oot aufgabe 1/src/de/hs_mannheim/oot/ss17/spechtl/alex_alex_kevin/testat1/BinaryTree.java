@@ -36,8 +36,8 @@ public class BinaryTree {
 	public void durchlauf(Ast ast) { //??
 		if (ast != null) {
 			durchlauf(ast.links);
-			System.out.print(ast.inhalt);
-			System.out.println();
+//			System.out.print(ast.inhalt);
+//			System.out.println();
 			durchlauf(ast.rechts);
 		}
 
@@ -46,8 +46,8 @@ public class BinaryTree {
 	public void laufedurch() { //???
 		if (wurzel != null) {
 			durchlauf(wurzel.links);
-			System.out.print(wurzel.inhalt);
-			System.out.println();
+//			System.out.print(wurzel.inhalt);
+//			System.out.println();
 			durchlauf(wurzel.rechts);
 		}
 	}
