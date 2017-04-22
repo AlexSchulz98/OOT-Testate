@@ -52,7 +52,7 @@ public class BinaryTree {
 		}
 	}
 
-	protected boolean contains(int i) {
+	public boolean contains(int i) {
 		//muss noch implementiert werden
 		return false;
 	}
