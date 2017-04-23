@@ -2,50 +2,69 @@ package de.hs_mannheim.oot.ss17.specht.alex_alex_kevin.testat1;
 
 public class BinaryTree {
 	
-	Ast wurzel = null;
-	protected int wert = 0;
+	private TreeNode wurzel =null;
+	
 	/**
-	 * @param i Wert
-	 */
+	 * @param i erster Wert 
+	 */	
 	public BinaryTree(int i) {
-		this.wert = i;
+		addNode(i);
 	}
+	
 	/**
 	 * Fügt einen neuen Wert in den Baum ein
 	 * @param wert Wert, welcher eingefügt wird
 	 */
 	public void addNode(int wert) { 
-		if (wurzel == null)
-			wurzel = new Ast(wert);
-		else
-			seite(wurzel, wert);
+		wurzel = addNode(wurzel, wert);
 	}
 	
 	/**
-	 * 
-	 * @param ast ???
+	 * Sucht die richtige Seite und fügt einen neuen Wert in den Baum ein
+	 * @param knoten 
 	 * @param wert Wert, welcher eingefügt wird
+	 * @return
 	 */
-	public void seite(Ast ast, int wert) {
-		if (wert < ast.inhalt) {
-			if (ast.links == null)
-				ast.links = new Ast(wert);
-			else
-				seite(ast.links, wert);
-		} else {
-			if (ast.rechts == null)
-				ast.rechts = new Ast(wert);
-			else
-				seite(ast.rechts, wert);
+	public TreeNode addNode(TreeNode knoten, int wert) { 
+		if (wurzel == null){
+			wurzel = new TreeNode(wert);	
 		}
+		else {
+			if(wurzel.getRechts() == null){
+				wurzel.rechts = addNode(wurzel.rechts, wert);
+			}
+			else {
+				wurzel.links = addNode(wurzel.links, wert);
+			}
+		}
+		return wurzel;
+	}	
+	/**
+	 * Prüft, ob der Baum leer ist
+	 * @return Gibt true zurück, wenn die Wurzel null ist
+	 */
+	public boolean isEmpty(){
+		return wurzel == null;
 	}
-
-	public void durchlauf(Ast ast) { //??
-		if (ast != null) {
-			durchlauf(ast.links);
-//			System.out.print(ast.inhalt);
-//			System.out.println();
-			durchlauf(ast.rechts);
+	
+	
+	public boolean contains(int i) {
+		if (wurzel == null){
+			return false;
+		} else if(wurzel.inhalt == i){
+			return true;
+		} else if(wurzel.inhalt > i){
+			//muss noch imlementiert werden
+		}
+		return false;
+		
+	}
+	
+	
+	public void durchlauf(TreeNode knoten) { //??
+		if (knoten != null) {
+			durchlauf(knoten.links);
+			durchlauf(knoten.rechts);
 		}
 
 	}
@@ -53,15 +72,14 @@ public class BinaryTree {
 	public void laufedurch() { //???
 		if (wurzel != null) {
 			durchlauf(wurzel.links);
-//			System.out.print(wurzel.inhalt);
-//			System.out.println();
 			durchlauf(wurzel.rechts);
 		}
 	}
 
-	public boolean contains(int i) {
-		return false;
-		//muss noch implementiert werden		
+	
+	
+	public String toString(){
+		String s ="";
+		return s;
 	}
-
 }
