@@ -30,5 +30,20 @@ public class TreeNode {
 	public int getInhalt(){
 		return inhalt;
 	}
-	
+	public boolean hasLeft(){
+		if(links == null){
+			return false;
+		}
+		else {
+			return true;	
+		}
+	}
+	public boolean hasRight(){
+		if(rechts == null){
+			return false;
+		}
+		else {
+			return true;	
+		}
+	}
 }

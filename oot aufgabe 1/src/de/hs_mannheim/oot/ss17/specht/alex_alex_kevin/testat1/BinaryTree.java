@@ -18,7 +18,6 @@ public class BinaryTree {
 	public void addNode(int wert) { 
 		wurzel = addNode(wurzel, wert);
 	}
-	
 	/**
 	 * Sucht die richtige Seite und fügt einen neuen Wert in den Baum ein
 	 * @param knoten 
@@ -26,19 +25,21 @@ public class BinaryTree {
 	 * @return
 	 */
 	public TreeNode addNode(TreeNode knoten, int wert) { 
-		if (wurzel == null){
-			wurzel = new TreeNode(wert);	
+		if (knoten == null){
+			knoten = new TreeNode(wert);	
 		}
 		else {
-			if(wurzel.getRechts() == null){
-				wurzel.rechts = addNode(wurzel.rechts, wert);
+			if(wert < knoten.inhalt){				
+				knoten.links = addNode(knoten.links, wert);
 			}
 			else {
-				wurzel.links = addNode(wurzel.links, wert);
-			}
-		}
-		return wurzel;
+				knoten.rechts = addNode(knoten.rechts, wert);
+				}
+			}	
+		System.out.println(knoten);
+		return knoten;		
 	}	
+
 	/**
 	 * Prüft, ob der Baum leer ist
 	 * @return Gibt true zurück, wenn die Wurzel null ist
@@ -47,39 +48,36 @@ public class BinaryTree {
 		return wurzel == null;
 	}
 	
-	
-	public boolean contains(int i) {
-		if (wurzel == null){
-			return false;
-		} else if(wurzel.inhalt == i){
+	/**
+	 * Überprüft, ob ein Wert vorhanden ist oder nicht.
+	 * @param wert Wert, der enthalten sein soll
+	 * @return true: Der Wert ist im Baum; false: Der Wert st nicht im Baum
+	 */
+	public boolean contains(int wert) {
+		return (contains(wurzel, wert))	;
+	}
+
+	public boolean contains(TreeNode knoten, int wert) {
+		if (knoten.getInhalt() == wert){
 			return true;
-		} else if(wurzel.inhalt > i){
-			//muss noch imlementiert werden
 		}
-		return false;
-		
+		boolean a = false;
+		if(knoten.hasLeft() == true){
+			a = contains(knoten.getLinks(), wert);
+		}
+		if(a == false && knoten.hasRight() == true){
+			a = contains(knoten.getRechts(), wert);
+		}
+		return a;
 	}
 	
-	
-	public void durchlauf(TreeNode knoten) { //??
-		if (knoten != null) {
-			durchlauf(knoten.links);
-			durchlauf(knoten.rechts);
-		}
-
-	}
-
-	public void laufedurch() { //???
-		if (wurzel != null) {
-			durchlauf(wurzel.links);
-			durchlauf(wurzel.rechts);
-		}
-	}
-
-	
-	
+	/**
+	 * Gibt den Baum als String aus
+	 */
 	public String toString(){
-		String s ="";
-		return s;
+		return wurzel + " ";
+		//Muss noch implementiert werden
 	}
 }
+
+	
