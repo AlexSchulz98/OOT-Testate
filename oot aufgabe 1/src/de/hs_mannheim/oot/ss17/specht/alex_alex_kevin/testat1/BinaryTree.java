@@ -36,7 +36,6 @@ public class BinaryTree {
 				knoten.rechts = addNode(knoten.rechts, wert);
 				}
 			}	
-		System.out.println(knoten);
 		return knoten;		
 	}	
 

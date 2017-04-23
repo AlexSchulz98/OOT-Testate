@@ -12,15 +12,15 @@ public class Main {
 
         System.out.println(tree);
         if (tree.toString().equals("-1,1,3,5,9,10")) {
-            System.out.println("Anscheinend korrekt implementierte toString funktion");
+            System.out.println("Anscheinend korrekt implementierte toString Funktion");
         } else {
-            System.out.println(tree + ": Nicht korrekt implementierte print funktion");
+            System.out.println(tree + ": Nicht korrekt implementierte print Funktion");
         }
 
         if (tree.contains(3) && !tree.contains(2)){
-            System.out.println("anscheinend korrekt implementierte contains funktion");
+            System.out.println("Anscheinend korrekt implementierte contains Funktion");
         } else {
-            System.out.println("Nicht korrekt implementierte contains funktion");
+            System.out.println("Nicht korrekt implementierte contains Funktion");
         }
 
     }
