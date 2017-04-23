@@ -4,12 +4,29 @@ public class BinaryTree {
 	
 	Ast wurzel = null;
 	protected int wert = 0;
-
+	/**
+	 * @param i Wert
+	 */
 	public BinaryTree(int i) {
 		this.wert = i;
 	}
-
-	public void seite(Ast ast, int wert) { //?
+	/**
+	 * Fügt einen neuen Wert in den Baum ein
+	 * @param wert Wert, welcher eingefügt wird
+	 */
+	public void addNode(int wert) { 
+		if (wurzel == null)
+			wurzel = new Ast(wert);
+		else
+			seite(wurzel, wert);
+	}
+	
+	/**
+	 * 
+	 * @param ast ???
+	 * @param wert Wert, welcher eingefügt wird
+	 */
+	public void seite(Ast ast, int wert) {
 		if (wert < ast.inhalt) {
 			if (ast.links == null)
 				ast.links = new Ast(wert);
@@ -20,17 +37,7 @@ public class BinaryTree {
 				ast.rechts = new Ast(wert);
 			else
 				seite(ast.rechts, wert);
-
 		}
-
-	}
-
-	public void addNode(int wert) { 
-		if (wurzel == null)
-			wurzel = new Ast(wert);
-		else
-			seite(wurzel, wert);
-
 	}
 
 	public void durchlauf(Ast ast) { //??
@@ -53,8 +60,7 @@ public class BinaryTree {
 	}
 
 	public boolean contains(int i) {
-		//muss noch implementiert werden
-		return false;
+		//muss noch implementiert werden		
 	}
 
 }
