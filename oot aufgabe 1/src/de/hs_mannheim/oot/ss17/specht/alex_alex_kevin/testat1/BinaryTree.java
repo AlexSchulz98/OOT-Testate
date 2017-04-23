@@ -60,6 +60,7 @@ public class BinaryTree {
 	}
 
 	public boolean contains(int i) {
+		return false;
 		//muss noch implementiert werden		
 	}
 
