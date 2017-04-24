@@ -83,11 +83,11 @@ public class BinaryTree {
 		String s = "";
 			
 			if(hauptknoten.hasLeft() == true){
-				s = s + hauptknoten;
+				s = s + hauptknoten.inhalt;
 				getString(hauptknoten.getLinks());
 			}
 			else {
-				s = hauptknoten + s;
+				s = hauptknoten.inhalt + s;
 			}
 			if(hauptknoten.hasRight() == true){
 				getString(hauptknoten.getRechts());
