@@ -3,6 +3,7 @@ package de.hs_mannheim.oot.ss17.specht.alex_alex_kevin.testat1;
 public class BinaryTree {
 	
 	private TreeNode wurzel =null;
+	private int count = 0;
 	
 	/**
 	 * @param i erster Wert 
@@ -17,6 +18,7 @@ public class BinaryTree {
 	 */
 	public void addNode(int wert) { 
 		wurzel = addNode(wurzel, wert);
+		count = count++;
 	}
 	/**
 	 * Sucht die richtige Seite und fügt einen neuen Wert in den Baum ein
@@ -74,9 +76,28 @@ public class BinaryTree {
 	 * Gibt den Baum als String aus
 	 */
 	public String toString(){
-		return wurzel + " ";
-		//Muss noch implementiert werden
+		return getString(wurzel);
 	}
+	public String getString(TreeNode hauptknoten){
+		
+		String s = "";
+			
+			if(hauptknoten.hasLeft() == true){
+				s = s + hauptknoten;
+				getString(hauptknoten.getLinks());
+			}
+			else {
+				s = hauptknoten + s;
+			}
+			if(hauptknoten.hasRight() == true){
+				getString(hauptknoten.getRechts());
+			}
+			else {
+				// Ich komm nicht weiter
+			}
+		return s;
+	}
+	
 }
 
 	
