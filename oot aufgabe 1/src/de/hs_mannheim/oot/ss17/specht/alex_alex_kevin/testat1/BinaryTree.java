@@ -92,9 +92,6 @@ public class BinaryTree {
 			if(hauptknoten.hasRight() == true){
 				getString(hauptknoten.getRechts());
 			}
-			else {
-				// Ich komm nicht weiter
-			}
 		return s;
 	}
 	
